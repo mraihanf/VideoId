@@ -106,7 +106,7 @@
   $("#generated").on("click", function () {
 
     var format = $("#format option:selected").val();
-    var hasil1 = format + yyyy;
+    var hasil1 = format + yyyy.substring(3, 4);
     console.log(hasil1);
 
     var program = $("#judul").val().split(' ');
