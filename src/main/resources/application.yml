@@ -1,0 +1,117 @@
+spring:
+   profiles:
+      active: panji
+---
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  config:
+    activate:
+      on-profile: panji
+  application:
+    name: Panji
+  datasource:
+      url: jdbc:postgresql://localhost:5432/VideoId
+      username: postgres
+      password: 123456
+      driverClassName: org.postgresql.Driver
+  jpa: 
+      database: default
+      hibernate: 
+         dialect: org.hibernate.dialect.PostgreSQLDialect
+         ddl-auto: update
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: classpath:/templates/
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+  web:
+    resources:
+      static-locations: classpath:/static/
+      cache:
+        period: 0
+server:
+  max-http-header-size: 10MB
+  port: 8087
+  error:
+    whitelabel:
+      enabled: false
+    path: /error
+  servlet:
+    session:
+        timeout: PT30M
+URL:
+  FILE_IN: C:\Users\Raihan.fadhlullah\Pictures\AMS
+  FILE_PRIEVIEW: C:\Users\Raihan.fadhlullah\Pictures\AMS
+  DOWNLOAD_HI_RES: C:\\Image
+  DOWNLOAD_LOW_RES: C:\\Image
+  
+---
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  config:
+    activate:
+      on-profile: Server
+  application:
+    name: Server
+  datasource:
+      url: jdbc:postgresql://localhost:5432/AMSIS
+      username: postgres
+      password: 123456
+      driverClassName: org.postgresql.Driver
+  jpa: 
+      database: default
+      hibernate: 
+         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+         ddl-auto: update
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+    prefix: classpath:/templates/
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+  web:
+    resources:
+      static-locations: classpath:/static/
+      cache:
+        period: 0
+server:
+  port: 8087
+  error:
+    whitelabel:
+      enabled: false
+    path: /error
+URL:
+  FILE_IN: C:\\IMAGE_AMS
+
+  FILE_IN_IMAGE: C:\\IMAGE_AMS
+
+  # FILE_PRIEVIEW: \\192.168.10.82\\preview\\OUT\\Lores
+
+  # DOWNLOAD_HI_RES: \\192.168.10.82\\preview\\OUT\\Prores
+
+  # THUMBNAILS: \\192.168.10.82\\preview\\OUT\\Lores\\thumb
+
+  # FILE_PRIEVIEW_Image: \\192.168.10.243\\Amberfin\\amberfin_media_IN\\Pic
+
+  # DOWNLOAD_HI_RES_Image: \\192.168.10.243\\Amberfin\\amberfin_media_IN\\Pic
+
+EXTENSION:
+  FILE_DOWNLOAD: .mov
+FTP:
+  REMOTE_HOST: 192.168.10.243
+  USERNAME: amberfin
+  PASSWORD: 123amberfin
+---
