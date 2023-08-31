@@ -143,9 +143,8 @@
         console.log(`${data.hasil}`);
         document.getElementById('hasilnya').innerHTML = `${data.hasil}`;
       },
-    }).then(()=>{
-      tableVideoID.ajax.reload();
     })
+    tableVideoID.ajax.reload();
   })
 
   var tableVideoID;
