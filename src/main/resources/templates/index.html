@@ -133,12 +133,12 @@
     console.log(hasil1);
 
     var program = $("#judul").val().split(' ');
-    var hasil2 = toUpperCase(program[0] + "_" + program[1] + "_" + program[2]);
+    var hasil2 = program[0] + "_" + program[1] + "_" + program[2];
     console.log(hasil2);
 
     $.ajax({
       method: 'post',
-      url: `/In?hasil1=${hasil1}&hasil2=${hasil2}&tahun=${yyyy}`,
+      url: `/In?hasil1=${hasil1}&hasil2=${hasil2.toUpperCase()}&tahun=${yyyy}`,
       success: function (data, status, jqXHR) {
         console.log(`${data.hasil}`);
         document.getElementById('hasilnya').innerHTML = `${data.hasil}`;
