@@ -61,8 +61,7 @@
             class="fa-solid fa-arrows-rotate"></i>`</a>
       </div>
     </div>
-    <h1 id="hasilnya">
-    </h1>
+    <h1 id="hasilnya">hasil</h1>
   </div>
 
 </body>
@@ -121,7 +120,7 @@
       url: `/In?hasil1=${hasil1}&hasil2=${hasil2}&tahun=${yyyy}`,
       success: function (data, status, jqXHR) {
         console.log(`${data.hasil}`);
-        document.getElementById('hasil').textContent(`${data.hasil}`);
+        document.getElementById('hasil').innerHTML(`${data.hasil}`);
       },
     })
   })
