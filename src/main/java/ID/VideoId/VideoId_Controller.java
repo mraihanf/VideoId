@@ -93,7 +93,7 @@ public class VideoId_Controller {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/find") 
+    @GetMapping(value = "/findvideo") 
     public ResponseEntity<Map> find(@RequestParam(defaultValue = "0") Integer start,
                                    @RequestParam(defaultValue = "5") Integer length) {
         Map data = new HashMap<>();
