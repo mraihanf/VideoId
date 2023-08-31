@@ -61,7 +61,18 @@
             class="fa-solid fa-arrows-rotate"></i>`</a>
       </div>
     </div>
-    <h1 id="hasilnya">hasil</h1>
+    <h1 class="text-center" id="hasilnya"></h1>
+    <div class="table-responsive">
+      <table class="table table-bordered" id="tableLog" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Video ID</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </body>
@@ -124,6 +135,50 @@
       },
     })
   })
+
+  var tableLog;
+  function showtableLog() {
+    tableallperson = $("#tableLog").DataTable({
+      dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>\n        <'table-responsive'tr>\n        <'row align-items-center'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 d-flex justify-content-end'p>>",
+      language: {
+        zeroRecords: "Data Tidak Ada",
+        paginate: {
+          previous: '<i class="fa fa-lg fa-angle-left"></i>',
+          next: '<i class="fa fa-lg fa-angle-right"></i>',
+        },
+      },
+      searching: false,
+      stateSave: false,
+      serverSide: true,
+      processing: true,
+      ordering: false,
+      "bDestroy": true,
+      "lenghtChange": false,
+      "bInfo": false,
+      lengthMenu: [5, 10, 50],
+      ajax: function (data, callback, settings) {
+        var page = Math.ceil(
+          settings._iDisplayStart / settings._iDisplayLength
+        );
+        var url = `/find?start=${page}&length=${data.length}`;
+        // console.log(url)
+        $.get(url, function (response) {
+          response.data.content.forEach(function (videoid, i) {
+            out.push([
+              videoid.hasil,
+            ]);
+            
+          });
+          callback({
+            recordsTotal: response.data.totalElements,
+            recordsFiltered: response.data.totalElements,
+            data: out,
+          });
+        });
+      },
+      deferRender: true,
+    });
+  }
 
   /*]]>*/
 </script>
