@@ -161,8 +161,8 @@
           settings._iDisplayStart / settings._iDisplayLength
         );
         var url = `/find?start=${page}&length=${data.length}`;
-        // console.log(url)
         $.get(url, function (response) {
+          var out = [];
           response.data.content.forEach(function (videoid, i) {
             out.push([
               videoid.hasil,
