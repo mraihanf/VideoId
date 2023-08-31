@@ -102,11 +102,12 @@
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
+  var yy = yyyy.substring(3, 4);
 
   $("#generated").on("click", function () {
 
     var format = $("#format option:selected").val();
-    var hasil1 = format + yyyy.substring(3, 4);
+    var hasil1 = format + yy;
     console.log(hasil1);
 
     var program = $("#judul").val().split(' ');
