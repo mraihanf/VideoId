@@ -4,9 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -85,6 +90,16 @@ public class VideoId_Controller {
         data.put("icon", "success");
         data.put("message", "success");
         data.put("hasil", hasil);
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/find") 
+    public ResponseEntity<Map> find(@RequestParam(defaultValue = "0") Integer start,
+                                   @RequestParam(defaultValue = "5") Integer length) {
+        Map data = new HashMap<>();
+        Pageable pageable = PageRequest.of(start, length, Sort.by("createdAt").descending());
+        Page<VideoId> dataPaging = videoId_Repository.findAll(pageable);
+        data.put("data", dataPaging);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
     
