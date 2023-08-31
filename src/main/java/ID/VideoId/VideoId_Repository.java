@@ -12,6 +12,16 @@ public interface VideoId_Repository extends JpaRepository<VideoId, Integer>{
         nativeQuery = true)
     Integer findByMaxnourut(String tahun);
 
+    // @Query(value = "SELECT max(norut) FROM videoid",
+    //     countQuery = "SELECT max(norut) FROM videoid",
+    //     nativeQuery = true)
+    // Integer modalnorut();
+
+    // @Query(value = "SELECT max(norut) FROM videoid",
+    //     countQuery = "SELECT max(norut) FROM videoid",
+    //     nativeQuery = true)
+    // String modalnorut();
+
     @Query(value = "SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM videoid c WHERE (c.tahun = ?1) AND (norut = ?2)",
         countQuery = "SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM videoid c WHERE (c.tahun = ?1) AND (no_urut = ?2)",
         nativeQuery = true)
