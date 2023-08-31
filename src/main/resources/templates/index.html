@@ -109,7 +109,7 @@
   /*<![CDATA[*/
   $(document).ready(function () {
     today = mm + '/' + dd + '/' + yyyy;
-    showtableLog();
+    showtableVideoID();
   })
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -133,14 +133,14 @@
       success: function (data, status, jqXHR) {
         console.log(`${data.hasil}`);
         document.getElementById('hasilnya').innerHTML = `${data.hasil}`;
-        tableLog.ajax.reload();
+        tableVideoID.ajax.reload();
       },
     })
   })
 
-  var tableLog;
-  function showtableLog() {
-    tableallperson = $("#tableLog").DataTable({
+  var tableVideoID;
+  function showtableVideoID() {
+    tablepersonall = $("#tableLog").DataTable({
       dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>\n        <'table-responsive'tr>\n        <'row align-items-center'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 d-flex justify-content-end'p>>",
       language: {
         zeroRecords: "Data Tidak Ada",
@@ -155,9 +155,7 @@
       processing: true,
       ordering: false,
       "bDestroy": true,
-      "lenghtChange": false,
-      "bInfo": false,
-      lengthMenu: [5, 10, 50],
+      lengthMenu: [5, 10],
       ajax: function (data, callback, settings) {
         var page = Math.ceil(
           settings._iDisplayStart / settings._iDisplayLength
@@ -165,11 +163,10 @@
         var url = `/find?start=${page}&length=${data.length}`;
         $.get(url, function (response) {
           var out = [];
-          response.data.content.forEach(function (videoid, i) {
+          response.data.content.forEach(function (logC, i) {
             out.push([
-              videoid.hasil,
+              logC.hasil,
             ]);
-            
           });
           callback({
             recordsTotal: response.data.totalElements,
