@@ -63,7 +63,7 @@
     </div>
     <div class="row">
       <h1 class="text-center mt-3" id="hasilnya"></h1>
-      <button class="btn btn-primary" data-clipboard-target="#hasilnya">
+      <button class="btncopy btn-primary" data-clipboard-target="#hasilnya">
         Copy
       </button>
     </div>
@@ -118,6 +118,7 @@
   $(document).ready(function () {
     today = mm + '/' + dd + '/' + yyyy;
     showtableVideoID();
+    new ClipboardJS('.btncopy');
   })
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
