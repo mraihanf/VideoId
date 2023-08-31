@@ -142,8 +142,6 @@
       success: function (data, status, jqXHR) {
         console.log(`${data.hasil}`);
         document.getElementById('hasilnya').innerHTML = `${data.hasil}`;
-      },
-      done: function() {
         tableVideoID.ajax.reload();
       }
     })
