@@ -109,6 +109,7 @@
   /*<![CDATA[*/
   $(document).ready(function () {
     today = mm + '/' + dd + '/' + yyyy;
+    showtableLog();
   })
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -132,6 +133,7 @@
       success: function (data, status, jqXHR) {
         console.log(`${data.hasil}`);
         document.getElementById('hasilnya').innerHTML = `${data.hasil}`;
+        tableLog.ajax.reload();
       },
     })
   })
