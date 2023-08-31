@@ -35,9 +35,9 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-2">
         <select type="text" id="format" class="form-control">
-          <option value="" selected disabled>-FORMAT-</option>
+          <option value="" selected disabled>--FORMAT--</option>
           <option value="TV">Iklan/TVC/Filler</option>
           <option value="PB">Promo Program</option>
           <option value="TR">Iklan Rokok</option>
@@ -51,15 +51,14 @@
         </select>
       </div>
       <div class="col-8">
-        <div class="form-floating">
-          <input type="text" id="judul" class="form-control" required="true" placeholder="Judul" />
-          <label for="judul">Judul</label>
-          <small class="form-text text-muted">Ex. NIVEAMAN CUCIMUKA 15SEC (namaprogram versi/judul
-            durasi/episode)</small>
-        </div>
+        <input type="text" id="judul" class="form-control" required="true" placeholder="Judul" />
+        <small class="form-text text-muted">Ex. NIVEAMAN CUCIMUKA 15SEC (namaprogram versi/judul
+          durasi/episode)</small>
+
       </div>
       <div class="col-2">
-        <a type="button" class="btn btn-success btn-sm" style="width: 100%; color: white;" id="generated">Generated</a>
+        <a type="button" class="btn btn-success btn-sm" style="width: 100%; color: white;" id="generated"><i
+            class="fa-solid fa-arrows-rotate"></i>`</a>
       </div>
     </div>
   </div>
@@ -97,20 +96,26 @@
 <script th:inline="javascript">
   /*<![CDATA[*/
   $(document).ready(function () {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
     today = mm + '/' + dd + '/' + yyyy;
-    document.write(today);
   })
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
 
   $("#generated").on("click", function () {
 
+    var format = $("#format option:selected").val();
+    var hasil1 = format + yyyy;
+    console.log(hasil1);
+
+    var program = $("#judul").val().split(' ');
+    var hasil2 = program[0] + "_" + program[1] + "_" + program[2];
+    console.log(hasil2);
+
     $.ajax({
       method: 'post',
-      url: ``,
+      url: `/In?hasil1=${hasil1}&hasil2=${hasil2}&tahun=${yyyy}`,
     })
   })
 
