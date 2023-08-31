@@ -117,6 +117,9 @@
     $.ajax({
       method: 'post',
       url: `/In?hasil1=${hasil1}&hasil2=${hasil2}&tahun=${yyyy}`,
+      success: function (data, status, jqXHR) {
+        console.log(`${data.hasil}`);
+      },
     })
   })
 
