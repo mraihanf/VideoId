@@ -115,73 +115,73 @@ public class VideoId_Controller {
             case 3:
             // untuk filter by format
                 Pageable pageable3 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging3 = videoId_Repository.search("search", pageable3);
+                Page<VideoId> dataPaging3 = videoId_Repository.search1("search", pageable3);
                 data.put("data", dataPaging3);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 4:
             // untuk filter by format
                 Pageable pageable4 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging4 = videoId_Repository.search("search", pageable4);
+                Page<VideoId> dataPaging4 = videoId_Repository.search2("search", pageable4);
                 data.put("data", dataPaging4);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 5:
             // untuk filter by format
                 Pageable pageable5 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging5 = videoId_Repository.search("search", pageable5);
+                Page<VideoId> dataPaging5 = videoId_Repository.search3("search", pageable5);
                 data.put("data", dataPaging5);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 6:
             // untuk filter by format
                 Pageable pageable6 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging6 = videoId_Repository.search("search", pageable6);
+                Page<VideoId> dataPaging6 = videoId_Repository.search4("search", pageable6);
                 data.put("data", dataPaging6);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 7:
             // untuk filter by format
                 Pageable pageable7 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging7 = videoId_Repository.search("search", pageable7);
+                Page<VideoId> dataPaging7 = videoId_Repository.search5("search", pageable7);
                 data.put("data", dataPaging7);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 8:
             // untuk filter by format
                 Pageable pageable8 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging8 = videoId_Repository.search("search", pageable8);
+                Page<VideoId> dataPaging8 = videoId_Repository.search6("search", pageable8);
                 data.put("data", dataPaging8);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 9:
             // untuk filter by format
                 Pageable pageable9 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging9 = videoId_Repository.search("search", pageable9);
+                Page<VideoId> dataPaging9 = videoId_Repository.search7("search", pageable9);
                 data.put("data", dataPaging9);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 10:
             // untuk filter by format
                 Pageable pageable10 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging10 = videoId_Repository.search("search", pageable10);
+                Page<VideoId> dataPaging10 = videoId_Repository.search8("search", pageable10);
                 data.put("data", dataPaging10);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 11:
             // untuk filter by format
                 Pageable pageable11 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging11 = videoId_Repository.search("search", pageable11);
+                Page<VideoId> dataPaging11 = videoId_Repository.search9("search", pageable11);
                 data.put("data", dataPaging11);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 12:
             // untuk filter by format
                 Pageable pageable12 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging12 = videoId_Repository.search("search", pageable12);
+                Page<VideoId> dataPaging12 = videoId_Repository.search10("search", pageable12);
                 data.put("data", dataPaging12);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 13:
             // untuk filter by format
                 Pageable pageable13 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging13 = videoId_Repository.search("search", pageable13);
+                Page<VideoId> dataPaging13 = videoId_Repository.search11("search", pageable13);
                 data.put("data", dataPaging13);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 14:
             // untuk filter by format
                 Pageable pageable14 = PageRequest.of(start, length, Sort.by("createdAt").ascending());
-                Page<VideoId> dataPaging14 = videoId_Repository.search("search", pageable14);
+                Page<VideoId> dataPaging14 = videoId_Repository.search12("search", pageable14);
                 data.put("data", dataPaging14);
                 return new ResponseEntity<>(data, HttpStatus.OK);
         }
