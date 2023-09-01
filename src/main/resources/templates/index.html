@@ -205,7 +205,7 @@
         var page = Math.ceil(
           settings._iDisplayStart / settings._iDisplayLength
         );
-        var url = `/findvideo?start=${page}&length=${data.length}&sort=${$("#formatfilter option:selected").val()}&search=${$("#search").val()}`;
+        var url = `/findvideo?start=${page}&length=${data.length}&sort=${$("#formatfilter option:selected").val()}&search=${$("#cari").val()}`;
         $.get(url, function (response) {
           var out = [];
           response.data.content.forEach(function (logC, i) {
