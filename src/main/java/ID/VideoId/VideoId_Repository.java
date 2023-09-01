@@ -29,65 +29,65 @@ public interface VideoId_Repository extends JpaRepository<VideoId, Integer>{
             nativeQuery = true)
     Page<VideoId> search(String search, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'BA%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'BA%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'BA%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'BA%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search1(String search, Pageable pageable);
+    Page<VideoId> search1(String search1, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'TV%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'TV%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'TV%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'TV%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search2(String search, Pageable pageable);
+    Page<VideoId> search2(String search2, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'TR%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'TR%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'TR%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'TR%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search3(String search, Pageable pageable);
+    Page<VideoId> search3(String search3, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'PB%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'PB%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'PB%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'PB%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search4(String search, Pageable pageable);
+    Page<VideoId> search4(String search4, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'BU%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'BU%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'BU%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'BU%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search5(String search, Pageable pageable);
+    Page<VideoId> search5(String search5, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'SI%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'SI%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'SI%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'SI%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search6(String search, Pageable pageable);
+    Page<VideoId> search6(String search6, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'AI%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'AI%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'AI%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'AI%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search7(String search, Pageable pageable);
+    Page<VideoId> search7(String search7, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'RT%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'RT%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'RT%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'RT%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search8(String search, Pageable pageable);
+    Page<VideoId> search8(String search8, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'SF%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'SF%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'SF%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'SF%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search9(String search, Pageable pageable);
+    Page<VideoId> search9(String search9, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'LT%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'LT%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'LT%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'LT%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search10(String search, Pageable pageable);
+    Page<VideoId> search10(String search10, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'VP%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'VP%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'VP%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'VP%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search11(String search, Pageable pageable);
+    Page<VideoId> search11(String search11, Pageable pageable);
 
-    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'ST%') AND (hasil ILIKE '%?1%')",
-            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'ST%') AND (hasil ILIKE '%?1%')",
+    @Query(value = "SELECT * FROM videoid where (hasil ILIKE 'ST%') AND (hasil ILIKE %?1%)",
+            countQuery = "SELECT count(*) FROM videoid where (hasil ILIKE 'ST%') AND (hasil ILIKE %?1%)",
             nativeQuery = true)
-    Page<VideoId> search12(String search, Pageable pageable);
+    Page<VideoId> search12(String search12, Pageable pageable);
 
 
 
