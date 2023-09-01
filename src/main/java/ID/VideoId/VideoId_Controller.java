@@ -170,8 +170,6 @@ public class VideoId_Controller {
             // untuk filter by format
                 Pageable pageable12 = PageRequest.of(start, length, Sort.by("created_at").descending());
                 Page<VideoId> dataPaging12 = videoId_Repository.search10(search, pageable12);
-                System.out.println(dataPaging12);
-                System.out.println(search);
                 data.put("data", dataPaging12);
                 return new ResponseEntity<>(data, HttpStatus.OK);
             case 13:
