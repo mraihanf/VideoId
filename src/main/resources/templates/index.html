@@ -132,8 +132,8 @@
     var hasil1 = format + yy;
     console.log(hasil1);
 
-    var program = $("#judul").val().split(' ');
-    var hasil2 = program[0] + "_" + program[1] + "_" + program[2];
+    var hasil2 = $("#judul").val().replaceAll(" ", "_");
+    // var hasil2 = program[0] + "_" + program[1] + "_" + program[2];
     console.log(hasil2);
 
     $.ajax({
