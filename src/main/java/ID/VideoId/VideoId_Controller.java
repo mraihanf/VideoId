@@ -102,7 +102,7 @@ public class VideoId_Controller {
         switch (sort) {
             case 1:
             // untuk filter by format desc
-                Pageable pageable = PageRequest.of(start, length, Sort.by("createdAt").descending());
+                Pageable pageable = PageRequest.of(start, length, Sort.by("created_at").descending());
                 Page<VideoId> dataPaging = videoId_Repository.search(search, pageable);
                 data.put("data", dataPaging);
                 return new ResponseEntity<>(data, HttpStatus.OK);
