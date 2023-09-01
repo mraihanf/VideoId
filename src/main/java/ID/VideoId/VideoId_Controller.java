@@ -94,11 +94,11 @@ public class VideoId_Controller {
     }
 
     @GetMapping(value = "/findvideo") 
-    public ResponseEntity<Map> find(@RequestParam(defaultValue = "0") Integer start,
+    public ResponseEntity<Map> find(@RequestParam(defaultValue = "0") Integer start, @RequestParam String search,
                                    @RequestParam(defaultValue = "5") Integer length) {
         Map data = new HashMap<>();
         Pageable pageable = PageRequest.of(start, length, Sort.by("createdAt").descending());
-        Page<VideoId> dataPaging = videoId_Repository.findAll(pageable);
+        Page<VideoId> dataPaging = videoId_Repository.search(search, pageable);
         data.put("data", dataPaging);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
