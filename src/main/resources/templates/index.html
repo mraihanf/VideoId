@@ -60,10 +60,34 @@
       </div>
     </div>
     <div class="input-group" style="justify-content: center; justify-items: center; width: 100%; height: 5rem;">
-        <h1 class="text-center mt-3" id="hasilnya"></h1> 
-        <button class="btncopy btn-primary mt-3" id="btncopy" style="border-radius: 5px; max-width: 2rem; max-height: 2rem; display: none;" data-clipboard-target="#hasilnya">
-          <i class="fa-solid fa-copy"></i>
-        </button>
+      <h1 class="text-center mt-3" id="hasilnya"></h1>
+      <button class="btncopy btn-primary mt-3" id="btncopy"
+        style="border-radius: 5px; max-width: 2rem; max-height: 2rem; display: none;" data-clipboard-target="#hasilnya">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+    </div>
+
+    <div class="row">
+      <div class="col-10">
+        <input type="text" id="search" class="form-control" placeholder="Search" />
+      </div>
+      <div class="col-2">
+        <select type="text" id="formatfilter" class="form-control">
+          <option value="" selected disabled>--Filter by--</option>
+          <option value="1">Program BTV</option>
+          <option value="2">TVC/Filler</option>
+          <option value="3">TVC Rokok</option>
+          <option value="4">Promo</option>
+          <option value="5">Bumper</option>
+          <option value="6">Super Inpose</option>
+          <option value="7">Animated Inpose</option>
+          <option value="8">Runing text</option>
+          <option value="9">Squise Frame</option>
+          <option value="10">Lower Thirtd</option>
+          <option value="11">Virus</option>
+          <option value="12">Station ID</option>
+        </select>
+      </div>
     </div>
 
     <div class="table-responsive">
@@ -109,7 +133,7 @@
 <script type="text/javascript" th:src="@{https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js}"
   integrity="sha256-u2kP0BrkAUxorzBPuW9nh3TKCtaXXSD3VY6/gxvUJig=" crossorigin="anonymous"
   referrerpolicy="no-referrer"></script>
-<script type="text/javascript"  th:src="@{https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js}"
+<script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js}"
   integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
 <script th:inline="javascript">
   /*<![CDATA[*/
@@ -144,7 +168,7 @@
         tableVideoID.ajax.reload();
       }
     })
-    
+
   })
 
   var tableVideoID;
@@ -172,7 +196,7 @@
         var page = Math.ceil(
           settings._iDisplayStart / settings._iDisplayLength
         );
-        var url = `/findvideo?start=${page}&length=${data.length}`;
+        var url = `/findvideo?start=${page}&length=${data.length}&sort=${$("#formatfilter option:selected").val()}&search=${$("#search").val()}`;
         $.get(url, function (response) {
           var out = [];
           response.data.content.forEach(function (logC, i) {
