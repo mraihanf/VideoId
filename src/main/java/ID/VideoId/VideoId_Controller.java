@@ -96,7 +96,7 @@ public class VideoId_Controller {
     }
 
     @GetMapping(value = "/findvideo") 
-    public ResponseEntity<Map> find(@RequestParam Integer sort, @RequestParam(defaultValue = "0") Integer start, @RequestParam String search,
+    public ResponseEntity<Map> find(@RequestParam(defaultValue = "1") Integer sort, @RequestParam(defaultValue = "0") Integer start, @RequestParam(required = false) String search,
                                    @RequestParam(defaultValue = "5") Integer length) {
         Map data = new HashMap<>();
         switch (sort) {
