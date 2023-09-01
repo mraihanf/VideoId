@@ -24,30 +24,28 @@
     referrerpolicy="no-referrer">
   <title>VideoID B-Universe</title>
 </head>
-<header>
-  <nav class="navbar navbar-expand-lg"
-    th:style="'background-image:url('+@{/images/images2.png}+');background-size:cover;'">
-    <a class="navbar-brand"><img class="img-fluid" th:src="@{/images/BTV.svg}" alt=""
-        style="width: 80px; margin:auto 20px" /></a>
-  </nav>
-</header>
+
 
 <body>
   <div class="container">
+    <img style="width: 300px; display: block; margin: 5% auto 0px;" th:src="@{/images/B_UNIVERSE_LOGO_COLOR.png}">
+    <h3 class="text-center" style="margin-top: -2rem; margin-bottom: 2rem;">Video ID</h3>
     <div class="row">
       <div class="col-2">
         <select type="text" id="format" class="form-control">
           <option value="" selected disabled>--FORMAT--</option>
-          <option value="TV">Iklan/TVC/Filler</option>
-          <option value="PB">Promo Program</option>
-          <option value="TR">Iklan Rokok</option>
-          <option value="RT">Runing text</option>
+          <option value="BA">Program BTV</option>
+          <option value="TV">TVC/Filler</option>
+          <option value="TR">TVC Rokok</option>
+          <option value="PB">Promo</option>
+          <option value="BU">Bumper</option>
           <option value="SI">Super Inpose</option>
-          <option value="LT">Lower Thirtd</option>
-          <option value="VP">Virus Promo</option>
+          <option value="AI">Animated Inpose</option>
+          <option value="RT">Runing text</option>
           <option value="SF">Squise Frame</option>
+          <option value="LT">Lower Thirtd</option>
+          <option value="VP">Virus</option>
           <option value="ST">Station ID</option>
-
         </select>
       </div>
       <div class="col-8">
@@ -58,14 +56,14 @@
       </div>
       <div class="col-2">
         <a type="button" class="btn btn-success btn-sm" style="width: 100%; color: white;" id="generated"><i
-            class="fa-solid fa-arrows-rotate"></i>`</a>
+            class="fa-solid fa-arrows-rotate"></i></a>
       </div>
     </div>
-    <div class="row">
-      <h1 class="text-center mt-3" id="hasilnya"></h1>
-      <button class="btncopy btn-primary" data-clipboard-target="#hasilnya">
-        Copy
-      </button>
+    <div class="input-group" style="justify-content: center; justify-items: center; width: 100%; height: 5rem;">
+        <h1 class="text-center mt-3" id="hasilnya"></h1> 
+        <button class="btncopy btn-primary mt-3" id="btncopy" style="border-radius: 5px; max-width: 2rem; max-height: 2rem; display: none;" data-clipboard-target="#hasilnya">
+          <i class="fa-solid fa-copy"></i>
+        </button>
     </div>
 
     <div class="table-responsive">
@@ -130,18 +128,19 @@
 
     var format = $("#format option:selected").val();
     var hasil1 = format + yy;
-    console.log(hasil1);
+    // console.log(hasil1);
 
     var hasil2 = $("#judul").val().replaceAll(" ", "_");
     // var hasil2 = program[0] + "_" + program[1] + "_" + program[2];
-    console.log(hasil2);
+    // console.log(hasil2);
 
     $.ajax({
       method: 'post',
       url: `/In?hasil1=${hasil1}&hasil2=${hasil2.toUpperCase()}&tahun=${yyyy}`,
       success: function (data, status, jqXHR) {
-        console.log(`${data.hasil}`);
+        // console.log(`${data.hasil}`);
         document.getElementById('hasilnya').innerHTML = `${data.hasil}`;
+        document.getElementById('btncopy').style.display = 'block';
         tableVideoID.ajax.reload();
       }
     })
@@ -165,8 +164,9 @@
       processing: true,
       ordering: false,
       "bDestroy": true,
-      "lenghtChange": false,
+      "bLengthChange": false,
       "bInfo": false,
+      // "bPaginate": false,
       lengthMenu: [5, 10],
       ajax: function (data, callback, settings) {
         var page = Math.ceil(
