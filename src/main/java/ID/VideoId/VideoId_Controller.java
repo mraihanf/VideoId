@@ -26,10 +26,18 @@ public class VideoId_Controller {
     // model.addAttribute("brd",countBrand);
 
     @PostMapping(value = "/In")
-    public ResponseEntity<Map> In(@RequestParam String hasil1, @RequestParam String hasil2,
-            @RequestParam String tahun) {
+    public ResponseEntity<Map> In(@RequestParam(required = true) String hasil1, @RequestParam(required = true) String hasil2,
+            @RequestParam(required = true) String tahun) {
 
         Map data = new HashMap<>();
+
+        if(hasil1.equals("") || hasil2.equals("")){
+            String hasil = "Judul Tidak Boleh Kosong.";
+            data.put("icon", "error");
+            data.put("message", "error");
+            data.put("hasil", hasil);
+            return new ResponseEntity<>(data, HttpStatus.OK);
+        }
 
         Integer max = videoId_Repository.findByMaxnourut(tahun);
         String hasil;
